@@ -9711,3 +9711,249 @@ body.intro-lock {
     transform: scale(1.01) !important;
   }
 }
+
+
+/* ==================================================
+   ヒーロー演出 最終調整
+   ・オープニング終了後も写真が動き続ける
+   ・右側の縦書きメッセージを読みやすくする
+================================================== */
+
+/* ------------------------------------------
+   ヒーロー写真
+   ズームアウトを継続する長いループ
+------------------------------------------ */
+
+.hero-bg {
+  opacity: 0.92;
+
+  transform:
+    scale(1.14)
+    translate3d(0, 0, 0);
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/*
+  オープニングがフェードアウトを始めるタイミングで
+  写真の動きを開始。
+
+  1サイクルを長くして、
+  ズームアウト → ごく小さく戻る → 再びズームアウト
+  という流れを連続させることで、
+  急な巻き戻りを感じにくくしています。
+*/
+body.hero-enter .hero-bg {
+  animation:
+    heroZoomOutContinuous
+    26s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    infinite;
+}
+
+
+@keyframes heroZoomOutContinuous {
+
+  0% {
+    opacity: 0.90;
+
+    transform:
+      scale(1.14)
+      translate3d(0, 0, 0);
+  }
+
+
+  12% {
+    opacity: 1;
+  }
+
+
+  68% {
+    opacity: 1;
+
+    transform:
+      scale(1.025)
+      translate3d(0, -0.7%, 0);
+  }
+
+
+  /*
+    ここからごくゆっくり少しだけ戻し、
+    次のズームアウトにつなげます。
+    大きくズームインする動きにはしません。
+  */
+  100% {
+    opacity: 1;
+
+    transform:
+      scale(1.075)
+      translate3d(-0.4%, -0.3%, 0);
+  }
+
+}
+
+
+/* ------------------------------------------
+   写真を少し暗くし、文字を読みやすく
+------------------------------------------ */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    /* 右側の縦書きメッセージ付近を少し暗く */
+    linear-gradient(
+      270deg,
+      rgba(10, 24, 17, 0.60) 0%,
+      rgba(10, 24, 17, 0.34) 18%,
+      rgba(10, 24, 17, 0.06) 42%,
+      transparent 58%
+    ),
+
+    /* 左側のタイトルを読みやすく */
+    linear-gradient(
+      90deg,
+      rgba(14, 28, 20, 0.82) 0%,
+      rgba(14, 28, 20, 0.58) 42%,
+      rgba(14, 28, 20, 0.24) 72%,
+      rgba(14, 28, 20, 0.18) 100%
+    ),
+
+    /* 写真全体をわずかに落ち着かせる */
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.18) 100%
+    );
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* ------------------------------------------
+   右側の縦書きメッセージ
+------------------------------------------ */
+
+.hero-side-message,
+.hero-vertical-message {
+  color: rgba(255, 255, 255, 0.96);
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.68),
+    0 0 18px rgba(0, 0, 0, 0.30);
+}
+
+
+.hero-side-message {
+  padding:
+    18px
+    10px
+    18px
+    24px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 35, 25, 0.10),
+      rgba(15, 35, 25, 0.34)
+    );
+
+  border-left:
+    1px
+    solid
+    rgba(216, 196, 141, 0.55);
+}
+
+
+.hero-vertical-message {
+  padding:
+    16px
+    10px;
+
+  background:
+    rgba(14, 32, 23, 0.28);
+
+  border-left:
+    1px
+    solid
+    rgba(216, 196, 141, 0.72);
+
+  border-right:
+    1px
+    solid
+    rgba(216, 196, 141, 0.34);
+
+  backdrop-filter:
+    blur(1.5px);
+}
+
+
+/* ------------------------------------------
+   ヒーロー本文も少しだけ視認性を上げる
+------------------------------------------ */
+
+.hero h1,
+.hero-subtitle,
+.hero-date,
+.hero-message {
+  text-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.46);
+}
+
+
+/* ------------------------------------------
+   スマートフォン
+------------------------------------------ */
+
+@media screen and (max-width: 640px) {
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(13, 28, 20, 0.48) 0%,
+        rgba(13, 28, 20, 0.34) 36%,
+        rgba(13, 28, 20, 0.48) 100%
+      ),
+
+      linear-gradient(
+        90deg,
+        rgba(13, 28, 20, 0.76) 0%,
+        rgba(13, 28, 20, 0.40) 70%,
+        rgba(13, 28, 20, 0.26) 100%
+      );
+  }
+
+
+  body.hero-enter .hero-bg {
+    animation-duration:
+      30s;
+  }
+
+}
+
+
+/* ------------------------------------------
+   動きを減らす設定
+------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  body.hero-enter .hero-bg {
+    animation: none !important;
+
+    transform:
+      scale(1.02)
+      !important;
+  }
+
+}

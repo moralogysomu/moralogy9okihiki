@@ -971,6 +971,21 @@ a:hover {
   letter-spacing: 0.04em;
 }
 
+/* ------------------------------------------
+   summary標準の開閉マーカーを非表示
+------------------------------------------ */
+
+.news-summary {
+  list-style: none;
+}
+
+.news-summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-summary::marker {
+  content: "";
+}
 
 /* ------------------------------------------
    右側の＋マーク

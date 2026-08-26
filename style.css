@@ -6631,13 +6631,9 @@ body {
 
   border: none;
   border-top: 1px solid var(--jingu-line);
+  border-bottom: 1px solid var(--jingu-line);
 
   box-shadow: none;
-}
-
-
-.official-site-link:last-child {
-  border-bottom: 1px solid var(--jingu-line);
 }
 
 
@@ -9164,13 +9160,8 @@ details[open] {
   background: transparent !important;
 
   border-top-color: rgba(255, 255, 255, 0.14) !important;
-}
-
-
-#about .official-site-link:last-child {
   border-bottom-color: rgba(255, 255, 255, 0.14) !important;
 }
-
 
 #about .official-site-link:hover {
   background: rgba(255, 255, 255, 0.06) !important;

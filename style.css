@@ -5703,14 +5703,14 @@ details p + p {
   .hero-side-message {
     right: 12px;
 
-    font-size: 13px;
+    font-size: 15px;
   }
 
 
   .hero-vertical-message {
     right: 70px;
 
-    font-size: 11px;
+    font-size: 15px;
   }
 
 }
@@ -5861,7 +5861,7 @@ body {
 }
 
 .hero-vertical-message {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 

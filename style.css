@@ -6741,6 +6741,8 @@ body {
 
 .sengu-context h2 {
   max-width: 760px;
+
+  font-size: clamp(32px, 4vw, 52px);
 }
 
 
@@ -7006,8 +7008,8 @@ details[open] {
   }
 
 
-  .sengu-context {
-    padding-top: 74px;
+  .sengu-context h2 {
+    font-size: 28px;
   }
 
 

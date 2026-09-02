@@ -1316,6 +1316,7 @@ body.hero-enter .hero-inner {
   position: relative;
 }
 
+/*
 .sengu-number {
   position: absolute;
   right: 0;
@@ -1339,6 +1340,7 @@ body.hero-enter .hero-inner {
 
   pointer-events: none;
 }
+*/
 
 .sengu-facts {
   position: relative;

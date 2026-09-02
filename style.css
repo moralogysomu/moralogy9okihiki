@@ -1316,32 +1316,6 @@ body.hero-enter .hero-inner {
   position: relative;
 }
 
-/*
-.sengu-number {
-  position: absolute;
-  right: 0;
-  top: -42px;
-
-  margin: 0;
-
-  color: rgba(40, 68, 55, 0.065);
-
-  font-family:
-    "Yu Mincho",
-    "YuMincho",
-    "Hiragino Mincho ProN",
-    "Noto Serif JP",
-    serif;
-
-  font-size: clamp(160px, 20vw, 280px);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.06em;
-
-  pointer-events: none;
-}
-*/
-
 .sengu-facts {
   position: relative;
   z-index: 1;
@@ -3134,12 +3108,6 @@ summary::-webkit-details-marker {
     grid-template-columns: 1fr;
   }
 
-  .sengu-number {
-    right: -20px;
-    top: -10px;
-    font-size: 180px;
-  }
-
   .sengu-facts {
     grid-template-columns: 1fr;
   }
@@ -3478,12 +3446,6 @@ summary::-webkit-details-marker {
 
   .official-site-link strong {
     font-size: 19px;
-  }
-
-  .sengu-number {
-    right: -18px;
-    top: 0;
-    font-size: 128px;
   }
 
   .sengu-facts {

@@ -3132,6 +3132,10 @@ summary::-webkit-details-marker {
     grid-template-columns: 1fr;
   }
 
+　.sengu-number {
+    display: none;
+　}
+   
   .sengu-facts {
     grid-template-columns: 1fr;
   }

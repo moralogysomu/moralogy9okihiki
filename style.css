@@ -1308,6 +1308,10 @@ body.hero-enter .hero-inner {
   background: #ffffff;
 }
 
+.sengu-context h2 {
+  font-size: clamp(30px, 3.6vw, 44px);
+}
+
 .sengu-context .section-inner {
   position: relative;
 }

@@ -831,9 +831,9 @@ body.hero-enter .hero-inner {
   padding-top: 48px;
   padding-bottom: 48px;
 
-  background: #ffffff;
-  border-bottom: 1px solid var(--line-light);
+  background-color: #eee9df;
 }
+
 
 .news .section-inner {
   display: grid;
@@ -842,29 +842,50 @@ body.hero-enter .hero-inner {
   gap: 46px;
 }
 
+
 .news h2 {
   margin: 0;
-  font-size: 30px;
+
+  font-size: 31px;
 }
+
+
+.news h2::before {
+  margin-bottom: 10px;
+}
+
+
+/* ------------------------------------------
+   お知らせ一覧
+------------------------------------------ */
 
 .news-list {
   border-top: 1px solid rgba(100, 85, 60, 0.22);
 }
 
+
 .news-item {
   margin: 0;
 
-  background: transparent;
   border-bottom: 1px solid rgba(100, 85, 60, 0.22);
+
+  background-color: transparent;
 }
+
 
 .news-item summary {
   list-style: none;
 }
 
+
 .news-item summary::-webkit-details-marker {
   display: none;
 }
+
+
+/* ------------------------------------------
+   日付＋タイトル
+------------------------------------------ */
 
 .news-summary {
   position: relative;
@@ -883,34 +904,50 @@ body.hero-enter .hero-inner {
     padding-left 0.25s ease;
 }
 
+
 .news-summary:hover {
   padding-left: 14px;
-  background: rgba(243, 239, 227, 0.52);
+
+  background-color: rgba(255, 255, 255, 0.42);
 }
+
 
 .news-summary::after {
   content: none !important;
+  display: none !important;
 }
 
+
 .news-date {
-  color: var(--green);
+  color: var(--deep-red);
 
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.10em;
+
+  letter-spacing: 0.1em;
 }
+
 
 .news-title {
   color: #2f302d;
 
   font-size: 16px;
   font-weight: 500;
+
   line-height: 1.7;
+
   letter-spacing: 0.04em;
 }
 
+
+/* ------------------------------------------
+   右側の＋マーク
+------------------------------------------ */
+
 .news-icon {
   position: relative;
+
+  display: block;
 
   width: 18px;
   height: 18px;
@@ -918,33 +955,53 @@ body.hero-enter .hero-inner {
   justify-self: end;
 }
 
+
 .news-icon::before,
 .news-icon::after {
   content: "";
 
   position: absolute;
+
   top: 50%;
   left: 50%;
 
   width: 14px;
   height: 1px;
 
-  background: var(--gold);
+  background-color: var(--gold);
+
   transform: translate(-50%, -50%);
+
   transition: transform 0.3s ease;
 }
 
+
 .news-icon::after {
-  transform: translate(-50%, -50%) rotate(90deg);
+  transform:
+    translate(-50%, -50%)
+    rotate(90deg);
 }
+
 
 .news-item[open] .news-icon::after {
-  transform: translate(-50%, -50%) rotate(0deg);
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg);
 }
 
+
+/* ------------------------------------------
+   本文
+------------------------------------------ */
+
 .news-content {
-  padding: 4px 50px 26px 171px;
+  padding:
+    4px
+    50px
+    26px
+    171px;
 }
+
 
 .news-content p {
   margin: 0 0 12px;
@@ -952,8 +1009,10 @@ body.hero-enter .hero-inner {
   color: #56534c;
 
   font-size: 15px;
+
   line-height: 1.95;
 }
+
 
 .news-content p:last-child {
   margin-bottom: 0;
